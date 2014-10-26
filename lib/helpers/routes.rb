@@ -1,8 +1,13 @@
 module Routes
+  
+  # Route Methods
+  
   def self.route(route)
     @@routes ||= []
     @@routes.push route
   end
+
+  # Routes
 
   route '/foodservices/menu'
   route '/foodservices/notes'

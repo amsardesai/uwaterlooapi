@@ -7,10 +7,9 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Ankit Sardesai"]
   spec.email       = 'me@ankitsardesai.ca'
   spec.files       = ["lib/uwaterlooapi.rb"]
-  #spec.homepage    = 'http://rubygems.org/gems/hola'
+  spec.homepage    = 'http://rubygems.org/gems/uwaterlooapi'
   spec.license     = 'MIT'
   spec.require_paths = ['lib']
   spec.add_dependency('httparty')
-  spec.add_dependency('json')
-  spec.add_dependency('yaml')
+  spec.add_dependency('recursive-open-struct')
 end

@@ -125,8 +125,8 @@ describe UWaterlooAPI do
       it 'can detect invalid method chains' do
         expect{ @api.terms.get }.to raise_exception NoMethodError
         expect{ @api.terms.term(1139).meta :status }.to raise_exception NoMethodError
-        expect{ @api.terms.get }.to raise_exception NoMethodError
-        expect{ @api.terms.get }.to raise_exception NoMethodError
+        expect{ @api.courses.catalog_number(1) }.to raise_exception NoMethodError
+        expect{ @api.foodservices.year(2013).announcements }.to raise_exception NoMethodError
       end
     end
   end

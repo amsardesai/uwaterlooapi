@@ -128,12 +128,6 @@ describe UWaterlooAPI do
         expect{ @api.terms.get }.to raise_exception NoMethodError
         expect{ @api.terms.get }.to raise_exception NoMethodError
       end
-
     end
-
-
-
-
   end
-
 end

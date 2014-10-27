@@ -1,8 +1,9 @@
 require 'httparty'
-require '~/repos/uwaterlooapi/lib/helpers/routes'
-require '~/repos/uwaterlooapi/lib/helpers/uwaterlooapi_query'
+require 'helpers/routes'
+require 'helpers/uwaterlooapi_query'
 
 class UWaterlooAPI
+  VERSION = '0.0.1'
   include Routes
 
   def initialize(api_key)

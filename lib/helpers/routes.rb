@@ -50,7 +50,7 @@ module Routes
   route '/codes/subjects'
   route '/codes/instructions'
   route '/buildings/list'
-  route '/buildings/{building}'
+  route '/buildings/{building_code}'
   route '/buildings/{building}/{room}/courses'
   route '/api/usage'
   route '/api/services'

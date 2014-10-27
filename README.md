@@ -17,7 +17,7 @@ Or install it in your system:
 
 ## Usage
 
-To use the API, you must first get an API key from http://api.uwaterloo.ca/.
+To use this gem, you must first get an API key from http://api.uwaterloo.ca/.
 
 ```ruby
 # Require the gem at the top of your ruby file

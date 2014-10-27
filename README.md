@@ -54,11 +54,12 @@ if my_favorite_course_schedule.meta(:status) == 204
 end
 ```
 
-For a list of all API endpoints and result formats, go here: https://github.com/uWaterloo/api-documentation
+For details regarding all API endpoints, go here: https://github.com/uWaterloo/api-documentation
 
 ## Contributing
 
 If you find bugs or simply want to contribute to this project:
+
 1. Fork this project
 2. Make your changes and push it to your fork
 3. Create a pull request in this repository

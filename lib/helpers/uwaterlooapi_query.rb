@@ -88,17 +88,20 @@ class UWaterlooAPIQuery
 
   def get_next_routes
     @next_routes ||= @@routes.
-      select { |s| s.start_with?(cur_route) }.
+      select { |s| s.start_with?(@cur_route) }.
       map { |s| s[@cur_route.length..-1] }.
       join.split('/').uniq.delete_if(&:empty?)
   end
 
   def get_next_routes_without_params
-    @next_routes_without_params ||= get_next_routes.reject { |r| r =~ /^\{.*\}$/ }.map(&:to_sym)
+    @next_routes_without_params ||= get_next_routes.
+      reject { |r| r =~ /^\{.*\}$/ }.map(&:to_sym)
   end
 
   def get_next_routes_with_params
-    @next_routes_with_params ||= get_next_routes.select { |r| r =~ /^\{.*\}$/ }.map { |r| r.delete('{}') }.map(&:to_sym)
+    @next_routes_with_params ||= get_next_routes.
+      select { |r| r =~ /^\{.*\}$/ }.
+      map { |r| r.delete('{}') }.map(&:to_sym)
   end
 
   def is_in_routes?(substring)

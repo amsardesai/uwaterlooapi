@@ -2,7 +2,7 @@ require 'recursive-open-struct'
 
 class UWaterlooAPIQuery
   include Routes
-
+  
   def initialize(cur_route, cur_url, api_key)
     @api_key = api_key
     @cur_url = cur_url
@@ -13,11 +13,8 @@ class UWaterlooAPIQuery
     # Define methods without parameters
     get_next_routes_without_params.each do |route|
       self.class.send :define_method, route do
-        if is_in_routes?("#{@cur_route}/#{route}")
-          UWaterlooAPIQuery.new "#{@cur_route}/#{route}", "#{@cur_url}/#{route}", api_key
-        else
-          raise NoMethodError
-        end
+        raise NoMethodError unless is_in_routes?("#{@cur_route}/#{route}")
+        UWaterlooAPIQuery.new "#{@cur_route}/#{route}", "#{@cur_url}/#{route}", @api_key
       end
     end
 
@@ -25,11 +22,8 @@ class UWaterlooAPIQuery
     get_next_routes_with_params.each do |route|
       self.class.send :define_method, route do |value|
         raise ArgumentError if ["", 0].include? value
-        if is_in_routes?("#{@cur_route}/{#{route}}")
-          UWaterlooAPIQuery.new "#{@cur_route}/{#{route}}", "#{@cur_url}/#{value}", api_key
-        else
-          raise NoMethodError
-        end
+        raise NoMethodError unless is_in_routes?("#{@cur_route}/{#{route}}")
+        UWaterlooAPIQuery.new "#{@cur_route}/{#{route}}", "#{@cur_url}/#{value}", @api_key
       end
     end
   end
@@ -37,11 +31,8 @@ class UWaterlooAPIQuery
   # Get meta variables
   def meta(var)
     raise NoMethodError unless is_full_route? @cur_route
-    if @meta
-      @meta[var.to_s]
-    else
-      raise "No request has been made yet, so meta data is not available."
-    end
+    raise "No request has been made yet, so meta data is not available." unless @meta
+    @meta[var.to_s]
   end
 
   # Get data from server
@@ -80,7 +71,7 @@ class UWaterlooAPIQuery
     end
   end
 
-  private
+private
 
   def just_made_request
     @retrieved_url == @cur_url

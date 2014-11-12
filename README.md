@@ -3,7 +3,9 @@ uwaterlooapi
 
 RubyGem wrapper for the University of Waterloo OpenData API
 
-[![Build Status](https://travis-ci.org/amsardesai/uwaterlooapi.svg?branch=master)](https://travis-ci.org/amsardesai/uwaterlooapi)
+[![Build Status](https://travis-ci.org/amsardesai/uwaterlooapi.svg)](https://travis-ci.org/amsardesai/uwaterlooapi)
+[![Code Climate](https://codeclimate.com/github/amsardesai/uwaterlooapi/badges/gpa.svg)](https://codeclimate.com/github/amsardesai/uwaterlooapi)
+[![Test Coverage](https://codeclimate.com/github/amsardesai/uwaterlooapi/badges/coverage.svg)](https://codeclimate.com/github/amsardesai/uwaterlooapi)
 
 ## Installation
 

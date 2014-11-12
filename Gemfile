@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rake'
+group :test do
+  gem 'rake'
+  gem 'codeclimate-test-reporter'
+end
 
 gemspec

@@ -10,15 +10,8 @@ class UWaterlooAPIQuery
     @retrieved_url = ''
     @response = @meta = nil
 
-    # Select only routes that may come next
-    routes = @@routes.select { |s| s.start_with?(cur_route) }.
-      map { |s| s[@cur_route.length..-1] }.
-      join.split('/').uniq.delete_if(&:empty?)
-
     # Define methods without parameters
-    routes.reject { |r| r =~ /^\{.*\}$/ }.
-      map(&:to_sym).each do |route|
-      
+    get_next_routes_without_params.each do |route|
       self.class.send :define_method, route do
         if is_in_routes?("#{@cur_route}/#{route}")
           UWaterlooAPIQuery.new "#{@cur_route}/#{route}", "#{@cur_url}/#{route}", api_key
@@ -29,10 +22,7 @@ class UWaterlooAPIQuery
     end
 
     # Define methods with parameters
-    routes.select { |r| r =~ /^\{.*\}$/ }.
-      map { |r| r.delete('{}') }.
-      map(&:to_sym).each do |route|
-
+    get_next_routes_with_params.each do |route|
       self.class.send :define_method, route do |value|
         raise ArgumentError if ["", 0].include? value
         if is_in_routes?("#{@cur_route}/{#{route}}")
@@ -94,6 +84,21 @@ class UWaterlooAPIQuery
 
   def just_made_request
     @retrieved_url == @cur_url
+  end
+
+  def get_next_routes
+    @next_routes ||= @@routes.
+      select { |s| s.start_with?(cur_route) }.
+      map { |s| s[@cur_route.length..-1] }.
+      join.split('/').uniq.delete_if(&:empty?)
+  end
+
+  def get_next_routes_without_params
+    @next_routes_without_params ||= get_next_routes.reject { |r| r =~ /^\{.*\}$/ }.map(&:to_sym)
+  end
+
+  def get_next_routes_with_params
+    @next_routes_with_params ||= get_next_routes.select { |r| r =~ /^\{.*\}$/ }.map { |r| r.delete('{}') }.map(&:to_sym)
   end
 
   def is_in_routes?(substring)

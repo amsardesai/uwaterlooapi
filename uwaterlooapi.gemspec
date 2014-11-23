@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |spec|
   spec.name        = 'uwaterlooapi'
-  spec.version     = '0.0.2'
+  spec.version     = '0.0.3'
   spec.date        = '2014-10-26'
   spec.summary     = "Ruby Gem wrapper for the University of Waterloo Open Data API"
   spec.description = "Ruby Gem wrapper for the University of Waterloo Open Data API"

@@ -1,19 +1,25 @@
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'uwaterlooapi/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'uwaterlooapi'
-  spec.version     = '0.0.3'
-  spec.date        = '2014-10-26'
-  spec.summary     = "Ruby Gem wrapper for the University of Waterloo Open Data API"
-  spec.description = "Ruby Gem wrapper for the University of Waterloo Open Data API"
-  spec.authors     = ["Ankit Sardesai"]
-  spec.email       = 'me@ankitsardesai.ca'
-  spec.files       = `git ls-files`.split("\n")
-  spec.test_files  = `git ls-files spec`.split("\n")
-  spec.homepage    = 'https://rubygems.org/gems/uwaterlooapi'
-  spec.license     = 'MIT'
+  spec.name          = 'uwaterlooapi'
+  spec.version       = UWaterlooAPI::VERSION
+  spec.authors       = ['Ankit Sardesai']
+  spec.email         = ['amsardesai@gmail.com']
+  spec.summary       = %q{Ruby Gem wrapper for the University of Waterloo Open Data API}
+  spec.description   = %q{Ruby Gem wrapper for the University of Waterloo Open Data API.}
+  spec.homepage      = ''
+  spec.license       = 'MIT'
+  spec.files         = `git ls-files -z`.split("\x0")
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
-  spec.add_runtime_dependency 'httparty'
-  spec.add_runtime_dependency 'recursive-open-struct'
+
+  spec.add_dependency 'httparty'
+  spec.add_dependency 'recursive-open-struct'
+
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'webmock'
 end

@@ -13,48 +13,48 @@ describe UWaterlooAPI do
       expect{ UWaterlooAPI.new }.to raise_exception ArgumentError
     end
 
-    it 'returns a UWaterlooAPIQuery object for foodservices' do
-      expect(@api.foodservices).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for foodservices' do
+      expect(@api.foodservices).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for courses' do
-      expect(@api.courses).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for courses' do
+      expect(@api.courses).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for events' do
-      expect(@api.events).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for events' do
+      expect(@api.events).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for news' do
-      expect(@api.news).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for news' do
+      expect(@api.news).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for weather' do
-      expect(@api.weather).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for weather' do
+      expect(@api.weather).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for terms' do
-      expect(@api.terms).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for terms' do
+      expect(@api.terms).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for resources' do
-      expect(@api.resources).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for resources' do
+      expect(@api.resources).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for codes' do
-      expect(@api.codes).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for codes' do
+      expect(@api.codes).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for buildings' do
-      expect(@api.buildings).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for buildings' do
+      expect(@api.buildings).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for api' do
-      expect(@api.api).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for api' do
+      expect(@api.api).to be_an_instance_of UWaterlooAPI::Query
     end
 
-    it 'returns a UWaterlooAPIQuery object for server' do
-      expect(@api.server).to be_an_instance_of UWaterlooAPIQuery
+    it 'returns a UWaterlooAPI::Query object for server' do
+      expect(@api.server).to be_an_instance_of UWaterlooAPI::Query
     end
 
     context 'queries' do
@@ -75,10 +75,10 @@ describe UWaterlooAPI do
       end
 
       it 'incrementally builds a query' do
-        expect(@api.terms.term(1139)).to be_an_instance_of UWaterlooAPIQuery
-        expect(@api.terms.term(1139).subject('CS')).to be_an_instance_of UWaterlooAPIQuery
-        expect(@api.terms.term(1139).subject('CS').catalog_number(115)).to be_an_instance_of UWaterlooAPIQuery
-        expect(@api.terms.term(1139).subject('CS').catalog_number(115).schedule).to be_an_instance_of UWaterlooAPIQuery
+        expect(@api.terms.term(1139)).to be_an_instance_of UWaterlooAPI::Query
+        expect(@api.terms.term(1139).subject('CS')).to be_an_instance_of UWaterlooAPI::Query
+        expect(@api.terms.term(1139).subject('CS').catalog_number(115)).to be_an_instance_of UWaterlooAPI::Query
+        expect(@api.terms.term(1139).subject('CS').catalog_number(115).schedule).to be_an_instance_of UWaterlooAPI::Query
       end
 
       it 'makes one request over an iteration' do
@@ -112,7 +112,7 @@ describe UWaterlooAPI do
       it 'has a working method_missing method' do
         expect{ @time.hellobrah }.to raise_exception NoMethodError
         expect(@time.timezone).to eq 'EDT'
-        expect(a_request(:get, 'https://api.uwaterloo.ca/v2/server/time.json?format=json&key=testkey')).to have_been_made.once        
+        expect(a_request(:get, 'https://api.uwaterloo.ca/v2/server/time.json?format=json&key=testkey')).to have_been_made.once
       end
 
       it 'allows retrieval of metadata' do

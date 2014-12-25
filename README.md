@@ -1,21 +1,23 @@
 uwaterlooapi
 ============
 
-RubyGem wrapper for the University of Waterloo OpenData API
-
 [![Build Status](https://travis-ci.org/amsardesai/uwaterlooapi.svg)](https://travis-ci.org/amsardesai/uwaterlooapi)
 [![Code Climate](https://codeclimate.com/github/amsardesai/uwaterlooapi/badges/gpa.svg)](https://codeclimate.com/github/amsardesai/uwaterlooapi)
 [![Test Coverage](https://codeclimate.com/github/amsardesai/uwaterlooapi/badges/coverage.svg)](https://codeclimate.com/github/amsardesai/uwaterlooapi)
 
+RubyGem wrapper for the University of Waterloo OpenData API
+
 ## Installation
 
-Add the following to your application's Gemfile:
+Add this line to your application's Gemfile:
 
-    gem 'uwaterlooapi'
+```ruby
+gem 'middleman-protect-emails'
+```
 
-Or install it in your system:
+And then run:
 
-    $ gem install uwaterlooapi
+    $ bundle
 
 ## Usage
 
@@ -60,8 +62,8 @@ For details regarding all API endpoints, go here: https://github.com/uWaterloo/a
 
 ## Contributing
 
-If you find bugs or simply want to contribute to this project:
-
-1. Fork this project
-2. Make your changes and push it to your fork
-3. Create a pull request in this repository
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a [new pull request](../../pull/new/master)

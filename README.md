@@ -12,7 +12,7 @@ RubyGem wrapper for the University of Waterloo OpenData API
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'middleman-protect-emails'
+gem 'uwaterlooapi'
 ```
 
 And then run:

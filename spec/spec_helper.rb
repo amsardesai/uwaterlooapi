@@ -23,6 +23,8 @@ RSpec.configure do |config|
       to_return(status: 200, body: File.new('responses/timestamp.json'), headers: { 'Content-Type' => 'application/json; charset=utf-8' })
     stub_request(:get, 'https://api.uwaterloo.ca/v2/terms/1139/CS/115/schedule.json?format=json&key=testkey').
       to_return(status: 200, body: File.new('responses/courses.json'), headers: { 'Content-Type' => 'application/json; charset=utf-8' })
+    stub_request(:get, 'https://api.uwaterloo.ca/v2/weather/current.json?format=json&key=testkey').
+      to_return(status: 500)
   end
 
   # Run specs in random order to surface order dependencies. If you find an

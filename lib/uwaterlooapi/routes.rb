@@ -60,6 +60,6 @@ class UWaterlooAPI
     route '/api/changelog'
     route '/server/time'
     route '/server/codes'
-
+    route '/parking/watpark'
   end
 end

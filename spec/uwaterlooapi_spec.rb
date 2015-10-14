@@ -296,6 +296,10 @@ describe UWaterlooAPI do
         expect(api.server.codes).to be_an_instance_of UWaterlooAPI::Query
       end
 
+      it 'includes parking/watpark' do
+        expect(api.parking.watpark).to be_an_instance_of UWaterlooAPI::Query
+      end
+
     end
   end
 end
